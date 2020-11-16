@@ -221,3 +221,15 @@ function sortByName(){
     console.log(sortedList);
 }
 sortByName();
+
+//Usecase12:
+function compareByZip(contact1, contact2){
+    let c1 = contact1.zip;
+    let c2 = contact2.zip;
+    return c1 - c2;
+}
+function sortByZip(){
+    let sortedList = addressBookArr.sort(compareByZip);
+    console.log(sortedList);
+}
+sortByZip(); 
