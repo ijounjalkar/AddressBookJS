@@ -129,3 +129,18 @@ function editContact(personName){
 let editName = prompt("Enter the person name");
 editContact(editName);
 console.log(addressBookArr); 
+
+//Usecase5:
+function deleteContact(personName){
+    let i = 0;
+    addressBookArr.forEach(contact => {
+        if((contact._firstName+" " + contact._lastName) == (personName)){
+            addressBookArr.splice(i,1);
+        }
+        i++;
+    });
+}
+
+let deleteName = prompt("Enter the person name to delete");
+deleteContact(deleteName);
+console.log(addressBookArr);
