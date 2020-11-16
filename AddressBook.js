@@ -74,7 +74,7 @@ class Contact{
     } 
     get email(){return this._email}
     set email(email){
-        if(emailRegex.test(emailRegex)){
+        if(emailRegex.test(email)){
             this._email = email;
         }else{
             throw "Invalid Email";
@@ -85,14 +85,22 @@ class Contact{
                 + " Zip: "+this.zip + " Phone: "+this.phone + " Email: "+this.email;
     }
 }
-let fName = prompt("Enter first name: ");
-let lName = prompt("Enter last name: ");
-let address = prompt("Enter the address: ");
-let city = prompt("Enter the city: ");
-let state = prompt("Enter the state: ");
-let zip = prompt("Enter the zip: ");
-let phone = prompt("Enter the phone: ");
-let email = prompt("Enter the email: ");
-
-let contact = new Contact(fName,lName,address,city,state,zip,phone,email);
-console.log(contact); 
+function createContact(){
+    let fName = prompt("Enter first name: ");
+    let lName = prompt("Enter last name: ");
+    let address = prompt("Enter the address: ");
+    let city = prompt("Enter the city: ");
+    let state = prompt("Enter the state: ");
+    let zip = prompt("Enter the zip: ");
+    let phone = prompt("Enter the phone: ");
+    let email = prompt("Enter the email: ");
+    let contact = new Contact(fName,lName,address,city,state,zip,phone,email);
+    return contact;
+}
+//Usecase3:
+let addressBookArr = new Array();
+function addContact(){
+    addressBookArr.push(createContact());
+}
+addContact();
+console.log(addressBookArr); 
