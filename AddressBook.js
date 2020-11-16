@@ -165,3 +165,16 @@ function checkDuplicate(newContact){
         }
     });
 }
+
+//Usecase8:
+function searchPersonByCity(name,city){
+    return addressBookArr.filter(contact => contact.city == city).filter(contact=> (contact.firstName + " " + contact.lastName) == name);
+}
+let personByCity = searchPersonByCity(prompt("Enter name"),prompt("Enter city"));
+console.log("Person in"+ city + " is: " +personByCity);
+
+function searchPersonByState(name,state){
+    return addressBookArr.filter(contact => contact.state == state).filter(contact=> (contact.firstName + " " + contact.lastName) == name);
+}
+let personByState = searchPersonByState(prompt("Enter name"),prompt("Enter state"));
+console.log("Person in "+ state + " is: "+personByState);
