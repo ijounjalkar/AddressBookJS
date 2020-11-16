@@ -1,3 +1,4 @@
+
 //Usecase1:
 var prompt = require('prompt-sync')();
 let nameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
@@ -208,3 +209,15 @@ console.log("The number of contacts in "+cityName+" is: "+countByCity(cityName))
 var stateName = prompt("Enter the state name to find count: ");
 console.log("The number of contacts in "+stateName+" is: "+countByState(stateName));
 
+//Usecase11:
+function compareByName(contact1, contact2){
+    let c1 = (contact1.firstName + " " + contact1.lastName).toUpperCase();
+    let c2 = (contact2.firstName + " " + contact2.lastName).toUpperCase();
+    if(c1 > c2) return 1;
+    if(c1 < c2) return -1;
+}
+function sortByName(){
+    let sortedList = addressBookArr.sort(compareByName);
+    console.log(sortedList);
+}
+sortByName();
