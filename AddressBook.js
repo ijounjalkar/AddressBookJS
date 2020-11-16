@@ -94,14 +94,18 @@ function createContact(){
     let zip = prompt("Enter the zip: ");
     let phone = prompt("Enter the phone: ");
     let email = prompt("Enter the email: ");
-    let contact = new Contact(fName,lName,address,city,state,zip,phone);
+    let contact = new Contact(fName,lName,address,city,state,zip,phone,email);
     return contact;
 }
 //Usecase3:
 let addressBookArr = new Array();
 function addContact(){
     let newContact = createContact();
-    addressBookArr.push(newContact);
+    if(checkDuplicate(newContact)){
+        console.log("Contact already exist");
+    }else{
+        addressBookArr.push(newContact);
+    }
 }
 addContact();
 console.log(addressBookArr);
@@ -151,3 +155,13 @@ function countContacts(){
     return addressBookArr.length;
 }
 console.log(countContacts());
+
+//Usecase7:
+function checkDuplicate(newContact){
+    addressBookArr.forEach(contact => {
+        if((contact.firstName + " " + contact.lastName) == (newContact.firstName + " " + newContact.lastName)){
+            console.log("Exists")
+            return true;
+        }
+    });
+}
