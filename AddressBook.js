@@ -178,3 +178,18 @@ function searchPersonByState(name,state){
 }
 let personByState = searchPersonByState(prompt("Enter name"),prompt("Enter state"));
 console.log("Person in "+ state + " is: "+personByState);
+
+//Usecase9:
+function viewPersonsByCity(city){
+    let list = addressBookArr.filter(contact => contact.city == city);
+    return list;
+}
+let viewByCity = viewPersonsByCity(prompt("Enter city name"));
+console.log("Persons in " + city + "are: " + viewByCity);
+
+function viewPersonsByState(state){
+    let list = addressBookArr.filter(contact => contact.state == state);
+    return list;
+}
+let viewByState = viewPersonsByState(prompt("Enter state name"));
+console.log("Persons in " + state + "are: " + viewByState);
