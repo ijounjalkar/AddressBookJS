@@ -103,4 +103,29 @@ function addContact(){
     addressBookArr.push(createContact());
 }
 addContact();
+console.log(addressBookArr);
+
+//Usecase4:
+function editContact(personName){
+    addressBookArr.forEach(contact => {
+        if((contact._firstName+" " + contact._lastName) == (personName)){
+            let choice = console.log("1.Add new phone 2.Add new email 3.Exit ");
+            switch(choice){
+                case 1 :
+                    var phoneNumber = prompt("Enter the phone no: ");
+                    contact._phone = phoneNumber;
+                    break;
+                case 2 :
+                    var emailId = prompt("Enter the email: ");
+                    contact._email = emailId;
+                    break; 
+                case 3 :
+                    return;
+            }
+
+        }
+    });
+}
+let editName = prompt("Enter the person name");
+editContact(editName);
 console.log(addressBookArr); 
