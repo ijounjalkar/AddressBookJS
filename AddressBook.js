@@ -94,13 +94,14 @@ function createContact(){
     let zip = prompt("Enter the zip: ");
     let phone = prompt("Enter the phone: ");
     let email = prompt("Enter the email: ");
-    let contact = new Contact(fName,lName,address,city,state,zip,phone,email);
+    let contact = new Contact(fName,lName,address,city,state,zip,phone);
     return contact;
 }
 //Usecase3:
 let addressBookArr = new Array();
 function addContact(){
-    addressBookArr.push(createContact());
+    let newContact = createContact();
+    addressBookArr.push(newContact);
 }
 addContact();
 console.log(addressBookArr);
@@ -109,8 +110,8 @@ console.log(addressBookArr);
 function editContact(personName){
     addressBookArr.forEach(contact => {
         if((contact._firstName+" " + contact._lastName) == (personName)){
-            let choice = console.log("1.Add new phone 2.Add new email 3.Exit ");
-            switch(choice){
+            let choice = prompt("1.Add new phone 2.Add new email 3.Exit ");
+            switch(parseInt(choice)){
                 case 1 :
                     var phoneNumber = prompt("Enter the phone no: ");
                     contact._phone = phoneNumber;
@@ -144,3 +145,9 @@ function deleteContact(personName){
 let deleteName = prompt("Enter the person name to delete");
 deleteContact(deleteName);
 console.log(addressBookArr);
+
+//Usecase6:
+function countContacts(){
+    return addressBookArr.length;
+}
+console.log(countContacts());
